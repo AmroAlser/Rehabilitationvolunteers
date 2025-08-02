@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - الهلال الأحمر الفلسطيني</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --red-crescent: #e30613;
+            --red-crescent-dark: #c00510;
+            --german-blue: #1a5fb4;
+            --norwegian-orange: #c64600;
+            --canadian-green: #26a269;
+            --text-dark: #222;
+            --text-medium: #555;
+            --text-light: #f5f5f5;
+            --shadow-sm: 0 4px 10px rgba(0,0,0,0.08);
+            --shadow-md: 0 8px 20px rgba(0,0,0,0.12);
+            --shadow-lg: 0 12px 30px rgba(0,0,0,0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--red-crescent), var(--red-crescent-dark));
+            padding: 3rem 1.5rem;
+            box-shadow: var(--shadow-sm);
+            color: white;
+            text-align: center;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            flex-direction: column;
+            animation: fadeInDown 0.8s ease;
+        }
+        
+        .logo img {
+            height: 100px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+        
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo h1 {
+            font-weight: 800;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .department-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .department-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 2px;
+        }
+        
+        .main-nav {
+            background-color: white;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .main-nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 0.7rem 1.3rem;
+            border-radius: 6px;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        
+        .main-nav a:hover {
+            color: var(--red-crescent);
+            background-color: #f8f8f8;
+            transform: translateY(-2px);
+        }
+        
+        .main-nav .nav-active {
+            color: white;
+            background: linear-gradient(135deg, var(--red-crescent), var(--red-crescent-dark));
+            box-shadow: 0 4px 12px rgba(227, 6, 19, 0.2);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 25px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 2rem;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #eee;
+            transition: var(--transition);
+        }
+        
+        .contact-info:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #eee;
+            transition: var(--transition);
+        }
+        
+        .contact-form:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--red-crescent);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .section-title i {
+            font-size: 1.8rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+        
+        .contact-item:hover {
+            background: #f1f3f5;
+            transform: translateX(-8px);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .contact-icon.email {
+            background: linear-gradient(135deg, var(--red-crescent), var(--red-crescent-dark));
+        }
+        
+        .contact-icon.phone {
+            background: linear-gradient(135deg, var(--canadian-green), #1e8a5a);
+        }
+        
+        .contact-icon.location {
+            background: linear-gradient(135deg, var(--german-blue), #134e9b);
+        }
+        
+        .contact-details h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+        
+        .contact-details p {
+            color: var(--text-medium);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 18px;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            font-size: 1.05rem;
+            transition: var(--transition);
+            background-color: #f8f9fa;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--red-crescent);
+            box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.1);
+            background-color: white;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, var(--red-crescent), var(--red-crescent-dark));
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            border-radius: var(--border-radius);
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(227, 6, 19, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(227, 6, 19, 0.3);
+            background: linear-gradient(135deg, var(--red-crescent-dark), var(--red-crescent));
+        }
+        
+        .submit-btn i {
+            font-size: 1.3rem;
+        }
+        
+        /* تأثيرات حركية */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .contact-info, .contact-form {
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .contact-info {
+            animation-delay: 0.2s;
+        }
+        
+        .contact-form {
+            animation-delay: 0.4s;
+        }
+        
+        /* زر العودة للأعلى */
+        .scroll-top {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--red-crescent), var(--red-crescent-dark));
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 99;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #222, #333);
+            color: white;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            margin-top: 5rem;
+        }
+        
+        footer p {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        footer a {
+            color: #ff6b6b;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        
+        footer a:hover {
+            color: #ff8f8f;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .department-title {
+                font-size: 1.6rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 25px;
+            }
+            
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .contact-details h4 {
+                font-size: 1.1rem;
+            }
+            
+            .contact-details p {
+                font-size: 1rem;
+            }
+            
+            .scroll-top {
+                bottom: 25px;
+                left: 25px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 2rem 1rem;
+                min-height: 240px;
+            }
+            
+            .logo img {
+                height: 80px;
+            }
+            
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            .department-title {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+                gap: 8px;
+            }
+            
+            .section-title i {
+                font-size: 1.4rem;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .contact-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+            
+            .submit-btn {
+                padding: 14px 20px;
+                font-size: 1.1rem;
+            }
+            
+            .nav-container {
+                gap: 10px;
+                padding: 0.8rem 15px;
+            }
+            
+            .main-nav a {
+                padding: 0.6rem 1rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="download.png" alt="شعار الهلال الأحمر الفلسطيني">
+            <h1>جمعية الهلال الأحمر الفلسطيني</h1>
+            <p class="department-title">اتصل بنا</p>
+        </div>
+    </header>
+    
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html">الرئيسية</a>
+            <a href="projects.html">المشاريع</a>
+            <a href="contact.html" class="nav-active">اتصل بنا</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2 class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    معلومات الاتصال
+                </h2>
+                
+                <div class="contact-item">
+                    <div class="contact-icon email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>البريد الإلكتروني</h4>
+                        <p>murlaus44@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon phone">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>الهاتف</h4>
+                        <p>+9720595625170</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon location">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>العنوان</h4>
+                        <p>قطاع غزة - فلسطين<br>جمعية الهلال الاحمر الفلسطيني<br>دائرة التاهيل المجتمعي</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h2 class="section-title">
+                    <i class="fas fa-paper-plane"></i>
+                    أرسل رسالة
+                </h2>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">الموضوع</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">الرسالة</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        إرسال الرسالة
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; م.عمرو السر</p>
+        <p>تواصل معنا: <a href="murlaus44@gmail.com">murlaus44@gmail.com</a></p>
+    </footer>
+    
+    <button class="scroll-top" id="scrollTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script>
+        // زر العودة للأعلى
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.style.opacity = '1';
+                scrollTopBtn.style.visibility = 'visible';
+            } else {
+                scrollTopBtn.style.opacity = '0';
+                scrollTopBtn.style.visibility = 'hidden';
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // تأثيرات الظهور عند التمرير
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactSections = document.querySelectorAll('.contact-info, .contact-form');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            contactSections.forEach(section => {
+                section.style.opacity = '0';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

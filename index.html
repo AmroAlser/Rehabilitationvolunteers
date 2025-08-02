@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متطوعو دائرة التأهيل - جمعية الهلال الأحمر الفلسطيني</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --red-crescent: #e30613;
+            --german-blue: #1a5fb4;
+            --norwegian-orange: #c64600;
+            --canadian-green: #26a269;
+            --text-dark: #333;
+            --text-light: #f5f5f5;
+            --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.15);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        /* تحسينات الهيدر */
+        header {
+            background: linear-gradient(135deg, var(--red-crescent), #c00510);
+            padding: 2rem 1.5rem;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            animation: fadeInDown 0.8s ease;
+            flex-direction: column;
+        }
+        
+        .logo img {
+            height: 90px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            transition: var(--transition);
+            margin-bottom: 10px;
+        }
+        
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo h1 {
+            font-weight: 700;
+            font-size: 2.2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 0.5rem;
+        }
+        
+        .department-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .department-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 2px;
+        }
+        
+        .main-nav {
+            background-color: white;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .main-nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .main-nav a:hover {
+            color: var(--red-crescent);
+            background-color: #f5f5f5;
+        }
+        
+        .main-nav .nav-active {
+            color: white;
+            background-color: var(--red-crescent);
+        }
+        
+        .print-btn {
+            background-color: var(--german-blue);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.95rem;
+            margin-right: auto;
+        }
+        
+        .print-btn:hover {
+            background-color: #134e9b;
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        /* أنماط جديدة للبحث والتصفية */
+        .search-filter {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .search-input, .filter-select {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .search-input:focus, .filter-select:focus {
+            outline: none;
+            border-color: var(--red-crescent);
+            box-shadow: 0 0 0 2px rgba(227, 6, 19, 0.2);
+        }
+
+        /* إحصائيات سريعة */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--red-crescent);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* بطاقات المتطوعين */
+        .volunteers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .volunteer-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .volunteer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .volunteer-header {
+            padding: 20px;
+            color: white;
+            position: relative;
+        }
+
+        .volunteer-header.canadian {
+            background: linear-gradient(135deg, var(--canadian-green), #1e8a5a);
+        }
+
+        .volunteer-header.norwegian {
+            background: linear-gradient(135deg, var(--norwegian-orange), #b03d00);
+        }
+
+        .volunteer-header.german {
+            background: linear-gradient(135deg, var(--german-blue), #0f4b9b);
+        }
+
+        .volunteer-name {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .volunteer-id {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .volunteer-body {
+            padding: 20px;
+        }
+
+        .volunteer-detail {
+            display: flex;
+            margin-bottom: 12px;
+        }
+
+        .volunteer-detail-icon {
+            width: 24px;
+            text-align: center;
+            color: var(--red-crescent);
+            margin-left: 10px;
+        }
+
+        .volunteer-detail-label {
+            font-weight: 500;
+            min-width: 100px;
+            color: #555;
+        }
+
+        .volunteer-detail-value {
+            flex: 1;
+        }
+
+        .volunteer-gender {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0,0,0,0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .volunteer-project {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .certificate-link {
+            background-color: #f0f0f0;
+            color: var(--text-dark);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .certificate-link:hover {
+            background-color: var(--red-crescent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #222, #444);
+            color: white;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 4rem;
+        }
+        
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer a {
+            color: var(--red-crescent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        footer a:hover {
+            color: #ff4d4d;
+            text-decoration: underline;
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--red-crescent);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 99;
+        }
+        
+        .scroll-top:hover {
+            background-color: #c00510;
+            transform: translateY(-3px);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo img {
+                margin-left: 0;
+                margin-bottom: 1rem;
+                height: 70px;
+            }
+            
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            .department-title {
+                font-size: 1.4rem;
+            }
+            
+            .nav-container {
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .print-btn {
+                margin-right: 0;
+                order: -1;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .volunteers-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .department-title {
+                font-size: 1.2rem;
+            }
+            
+            .scroll-top {
+                bottom: 20px;
+                left: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    
+        /* Hero Banner Styles */
+        .hero-banner {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+        
+        .hero-content {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(227, 6, 19, 0.8), rgba(192, 5, 16, 0.6));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            line-height: 1.6;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .hero-stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Enhanced volunteer cards with animations */
+        .volunteer-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .volunteer-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: var(--transition);
+            opacity: 0;
+        }
+        
+        .volunteer-card:hover::before {
+            animation: shimmer 0.6s ease-in-out;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Floating action button */
+        .floating-actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+        
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: var(--transition);
+        }
+        
+        .floating-btn.budget {
+            background: linear-gradient(135deg, var(--canadian-green), #1e8a5a);
+        }
+        
+        .floating-btn.contact {
+            background: linear-gradient(135deg, var(--german-blue), #0f4b9b);
+        }
+        
+        .floating-btn:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Enhanced search and filter */
+        .search-filter {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+        }
+        
+        .filter-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--red-crescent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .floating-actions {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="download.png" alt="شعار الهلال الأحمر الفلسطيني">
+            <h1>جمعية الهلال الأحمر الفلسطيني</h1>
+            <p class="department-title">دائرة التأهيل المجتمعي</p>
+        </div>
+    </header>
+    
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-active">الرئيسية</a>
+            <a href="projects.html">عن المشاريع</a>
+            <a href="contact.html">اتصل بنا</a>
+            <button class="print-btn" onclick="window.print()">
+                <i class="fas fa-print"></i> طباعة الصفحة
+            </button>
+        </div>
+    </nav>
+    <section class="hero-banner">
+        <div class="hero-content">
+            <img src="rehabilitation_banner.png" alt="خدمات التأهيل المجتمعي" class="hero-image">
+            <div class="hero-overlay">
+                <h2 class="hero-title">نحو مجتمع بجودة افضل</h2>
+                <p class="hero-subtitle">نعمل على تمكين الأشخاص ذوي الإعاقة وتحسين جودة حياتهم من خلال برامج التأهيل المتخصصة</p>   
+            </div>
+        </div>
+    </section>
+    
+    
+    <div class="container">
+        <!-- فلتر البحث -->
+        <div class="search-filter"><h3 class="filter-title"><i class="fas fa-filter"></i> البحث والتصفية</h3>
+            
+            <input type="text" id="volunteerSearch" placeholder="ابحث عن متطوع..." class="search-input">
+            <select id="projectFilter" class="filter-select">
+                <option value="all">جميع المشاريع</option>
+                <option value="الكندي">المشروع الكندي</option>
+                <option value="النرويجي">المشروع النرويجي</option>
+                <option value="الالماني">المشروع الألماني</option>
+            </select>
+            <select id="genderFilter" class="filter-select">
+                <option value="all">كل الجنس</option>
+                <option value="أنثى">إناث</option>
+                <option value="ذكر">ذكور</option>
+            </select>
+        </div>
+
+        <!-- إحصائيات سريعة -->
+        <div class="quick-stats">
+            <div class="stat-box">
+                <span class="stat-number">74</span>
+                <span class="stat-label">إجمالي المتطوعين</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">38</span>
+                <span class="stat-label">المشروع الكندي</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">25</span>
+                <span class="stat-label">المشروع النرويجي</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">12</span>
+                <span class="stat-label">المشروع الألماني</span>
+            </div>
+        </div>
+
+        <!-- قائمة المتطوعين -->
+        <div class="volunteers-container" id="volunteersContainer">
+            <!-- سيتم ملء هذا القسم بالبيانات من JavaScript -->
+        </div>
+    </div>
+    
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; م.عمرو السر</p>
+        <p>تواصل معنا: <a href="mailto:murlaus44@gmail.com">murlaus44@gmail.com</a></p>
+    </footer>
+    
+    <button class="scroll-top" id="scrollTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script>
+        // بيانات المتطوعين كاملة من ملف Excel مع إضافة روابط الشهادات
+        const volunteers = [
+            {
+                name: "هديل عماد يوسف الحلاق",
+                id: "410693790",
+                phone: "595286007",
+                gender: "أنثى",
+                governorate: "خانيونس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج الطبيعي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1H8rGq6KPPLT9FR6Rh0NsOsRiFWqDi6w9/view?usp=sharing"
+            },
+            {
+                name: "آمنة ديب حمدان رمضان",
+                id: "801346693",
+                phone: "599619005",
+                gender: "أنثى",
+                governorate: "خانيونس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج وظيفي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1vDwyTVjjXiwXuGWuXpwQ9PybjaxA3nyj/view?usp=sharing"
+            },
+            {
+                name: "ايمان خليل سلمان ابو مصطفى",
+                id: "404172983",
+                phone: "599260824",
+                gender: "أنثى",
+                governorate: "خانيونس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج النطق ومشاكل الكلام",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1fj3tURKniTNNU0uyvUiNNhtQ_43MD9HR/view?usp=sharing"
+            },
+            {
+                name: "مرام أشرف عبد العزيز عابدين",
+                id: "400155230",
+                phone: "599806257",
+                gender: "أنثى",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج طبيعي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1lnl-7y0LORTUTj3bGsMym3jhX8zKIn9v/view?usp=sharing"
+            },
+            {
+                name: "براء محمد محمد الشيخ علي",
+                id: "405134503",
+                phone: "594104394",
+                gender: "أنثى",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج الطبيعي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1P9zCA5dbInlIy7FSfaXDuCDydPZ4Kgmz/view?usp=sharing"
+            },
+            {
+                name: "ولاء ناصر أحمد أبو عاذرة",
+                id: "406141275",
+                phone: "599861744",
+                gender: "أنثى",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج الوظيفي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1tYo591iLzofOWqgz55CbFtKPUoeM-_Sx/view?usp=sharing"
+            },
+            {
+                name: "باسم محمود عبد الله عدوان",
+                id: "901265553",
+                phone: "592404044",
+                gender: "ذكر",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج وظيفي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1AEmLBNahEuuBuarVKXpj-Rmriqlvgc13/view?usp=sharing"
+            },
+            {
+                name: "سها زياد شعيب الفرا",
+                id: "801859670",
+                phone: "595706015",
+                gender: "أنثى",
+                governorate: "خانيونس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج الوظيفي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1ZW9LnFCDk9TUTa2gUGUQN37lEwAQbyel/view?usp=sharing"
+            },
+            {
+                name: "ابراهيم عصام ابراهيم أبو شاب",
+                id: "405874041",
+                phone: "594018775",
+                gender: "ذكر",
+                governorate: "خانيونس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج الطبيعي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1ZW9LnFCDk9TUTa2gUGUQN37lEwAQbyel/view?usp=sharing"
+            },
+            {
+                name: "أبرار خليل عبد الحميد زعرب",
+                id: "400556130",
+                phone: "596605805",
+                gender: "أنثى",
+                governorate: "خانيونس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "ادخال بيانات",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1gpn1Wza6LRHQr7QL4_oNOejKtbWCmg2z/view?usp=sharing"
+            },
+            {
+                name: "محمود حسان محمد ابو صوصين",
+                id: "405950395",
+                phone: "0599947759",
+                gender: "ذكر",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "خدمة الاجتماعية",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/11QocfTQgII4aGeS9QCxK0Ac2IHWE6Std/view?usp=sharing"
+            },
+            {
+                name: "حياة عبد اللطيف عبد الرحمن التلباني",
+                id: "414954743",
+                phone: "567303411",
+                gender: "أنثى",
+                governorate: "الوسطى",
+                missionGov: "الوسطى",
+                department: "التأهيل",
+                missionType: "علاج الوظيفي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1hk2DfEiYYvlTowtZDcZTCwJlFMBEPdgD/view?usp=sharing"
+            },
+            {
+                name: "ايهاب أحمد عبد الله بشير",
+                id: "803591221",
+                phone: "597175444",
+                gender: "ذكر",
+                governorate: "الوسطى",
+                missionGov: "الوسطى",
+                department: "التأهيل",
+                missionType: "الخدمة الاجتماعية",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1s-QScvL3tIFyvTDbVFHmDjBA5xTkBhVS/view?usp=sharing"
+            },
+            {
+                name: "اصالة يوسف جاد الله كلاب",
+                id: "407738376",
+                phone: "567533760",
+                gender: "أنثى",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "علاج وظيفي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1AWttnnoqxKjfNWU1tI7JwFlCIAcm6Wu4/view?usp=sharing"
+            },
+            {
+                name: "زين راغب حسيب الكردي",
+                id: "905441663",
+                phone: "595412635",
+                gender: "أنثى",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "علاج النطق ومشاكل الكلام",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1Q8ok6xgbZa7y8wVH8ufMBpPUUh_xXMZK/view?usp=sharing"
+            },
+            {
+                name: "جهاد حازم رفيق سكيك",
+                id: "401920640",
+                phone: "595630428",
+                gender: "ذكر",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "علاج الطبيعي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1k5LkUBwWznIqnlRWhvRfc-JC3QlNHczV/view?usp=sharing"
+            },
+            {
+                name: "مها مراد حمدي عجور",
+                id: "802506964",
+                phone: "597577989",
+                gender: "أنثى",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "علاج نطق",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1Q2Gp7-ikgZdGinXEdsfw-iOycmZzePCo/view?usp=sharing"
+            },
+            {
+                name: "محمد حسن عبد السلام البواب",
+                id: "411914971",
+                phone: "567361765",
+                gender: "ذكر",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "تدخل ميداني",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1p1wvExmVc794ybvNAZYIDiLhYvHa7fUH/view?usp=sharing"
+            },
+            {
+                name: "محمد جهاد عمر مطير",
+                id: "405991225",
+                phone: "599020964",
+                gender: "ذكر",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "علاج طبيعي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/15JntMQI5lOlSkgtWkKsWbTCXEzEmSrPK/view?usp=sharing"
+            },
+            {
+                name: "عبير شريف إسماعيل كلاب",
+                id: "400885323",
+                phone: "598307116",
+                gender: "أنثى",
+                governorate: "جباليا",
+                missionGov: "جباليا",
+                department: "التأهيل",
+                missionType: "التربيةالخاصة",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1aJFA0y-nUyOh6jofWAu6nSP701dKtld_/view?usp=sharing"
+            },
+            {
+                name: "هدى خالد عبد الهادي صيام",
+                id: "402058457",
+                phone: "567069442",
+                gender: "أنثى",
+                governorate: "جباليا",
+                missionGov: "جباليا",
+                department: "التأهيل",
+                missionType: "علاج وظيفي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1PSH1RDcQbclVRke2wMif7k7smBn3W84g/view?usp=sharing"
+            },
+            {
+                name: "أريج محمود سعد الندر",
+                id: "405159765",
+                phone: "595353681",
+                gender: "أنثى",
+                governorate: "جباليا",
+                missionGov: "جباليا",
+                department: "التأهيل",
+                missionType: "تدخل ميداني",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1abc123example23/view?usp=sharing"
+            },
+            {
+                name: "صديقة نظمي محمد الزعانين",
+                id: "801801440",
+                phone: "599730234",
+                gender: "أنثى",
+                governorate: "جباليا",
+                missionGov: "جباليا",
+                department: "التأهيل",
+                missionType: "تدخل ميداني",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1abc123example24/view?usp=sharing"
+            },
+            {
+                name: "أحمد ماهر محمد أبو حمد",
+                id: "804557924",
+                phone: "599688875",
+                gender: "ذكر",
+                governorate: "جباليا",
+                missionGov: "جباليا",
+                department: "التأهيل",
+                missionType: "تدخل ميداني",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1abc123example25/view?usp=sharing"
+            },
+            {
+                name: "جهاد عبد المنعم أبو هويشل",
+                id: "804751733",
+                phone: "594035903",
+                gender: "ذكر",
+                governorate: "الوسطى",
+                missionGov: "الوسطى",
+                department: "التأهيل",
+                missionType: "علاج نطقي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1bwGN16A0aISnE_DVvrwaQL_fHN4_NdTF/view?usp=sharing"
+            },
+            {
+                name: "علا ابراهيم جمعة العصار",
+                id: "406139527",
+                phone: "595246906",
+                gender: "أنثى",
+                governorate: "الوسطى",
+                missionGov: "الوسطى",
+                department: "التأهيل",
+                missionType: "علاج طبيعي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1aYbqgZNCVbXKgDXKPTMv5sSIUlTzrUFn/view?usp=sharing"
+            },
+            {
+                name: "عصمت عبد المحسن علي خضر",
+                id: "407002617",
+                phone: "598341216",
+                gender: "أنثى",
+                governorate: "جباليا",
+                missionGov: "جباليا",
+                department: "التأهيل",
+                missionType: "علاج طبيعي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1wMZRggAUaqTYlTm9Du1CixX4r7rWScuT/view?usp=sharing"
+            },
+            {
+                name: "محمد عبد السلام جراد عابدين",
+                id: "406965459",
+                phone: "592439008",
+                gender: "ذكر",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج طبيعي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1aJ1u_4EWd9ryI0HZqOicqxrwFpkbZera/view?usp=sharing"
+            },
+            {
+                name: "سندس فؤاد فهمي النواجحه",
+                id: "406058693",
+                phone: "592620816",
+                gender: "أنثى",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج طبيعي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1iMujsjv3yc7eZqjFG31h_CU2ZMTLOP7n/view?usp=sharing"
+            },
+            {
+                name: "سهاد محمد أحمد أبو البطيخ",
+                id: "405215393",
+                phone: "592892773",
+                gender: "أنثى",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "خدمة اجتماعية",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1NB7xZ9yLM-cBEjUnF3-rk1bp9c_HnlFL/view?usp=sharing"
+            },
+            {
+                name: "اسمهان زهير سعيد أبو عيسى",
+                id: "954625299",
+                phone: "599441608",
+                gender: "أنثى",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج نطقي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1tNdZYH8z-03D0e7BwBgg0jaH7R3mmtov/view?usp=sharing"
+            },
+            {
+                name: "نازك محمد مصطفى المجذوب",
+                id: "408123784",
+                phone: "595283319",
+                gender: "أنثى",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "علاج طبيعي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1kEtFfdc3OrR8qLDD1ZAyaOFzkZyrH5iV/view?usp=sharing"
+            },
+            {
+                name: "رشا منير سليمان شحادة",
+                id: "400042446",
+                phone: "592672793",
+                gender: "أنثى",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "علاج طبيعي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1gUvPUbq5CLqs0yz2wd96urwzYtGGqsgE/view?usp=sharing"
+            },
+            {
+                name: "ياسر كمال خالد السكافي",
+                id: "802818013",
+                phone: "599065400",
+                gender: "ذكر",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "خدمة اجتماعية",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1CmOy6GCeL-9w0CMZbpmUMBCX9WUoTv9O/view?usp=sharing"
+            },
+            {
+                name: "انتصار فؤاد يعقوب عكيله",
+                id: "803730118",
+                phone: "599594814",
+                gender: "أنثى",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "خدمة اجتماعية",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/17i7gMQn8SC3Vso4ylgPJ108L0pLbOHGw/view?usp=sharing"
+            },
+            {
+                name: "مرام عبد الحميد عبد الرحمن الفرا",
+                id: "410938211",
+                phone: "595784078",
+                gender: "أنثى",
+                governorate: "خانيوتس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج طبيعي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1uQNDUNtt2AYoJXW1hpNOgOS9vWgY0YUA/view?usp=sharing"
+            },
+            {
+                name: "أحمد صالح أحمد بركه",
+                id: "415380062",
+                phone: "594118356",
+                gender: "ذكر",
+                governorate: "خانيونس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج طبيعي",
+                project: "الكندي",
+                certificateUrl: "https://drive.google.com/file/d/1zPAbe7Zz06tHjJmcj6TfUEIgfBLV-cpE/view?usp=sharing"
+            },
+            {
+                name: "ألاء وائل عبد العزيز عامر",
+                id: "404656944",
+                phone: "593203901",
+                gender: "أنثى",
+                governorate: "خانيونس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج طبيعي",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1n6tVaBdL4JWUCnc0k81RcI6H17vqTAWH/view?usp=sharing"
+            },
+            {
+                name: "شروق حياد محمد المجايدة",
+                id: "400759791",
+                phone: "592598658",
+                gender: "أنثى",
+                governorate: "خانيونس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج وظيفي",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1E5BnzfiKFVKxq1n2YQ3czf-KQ-6zCF5P/view?usp=sharing"
+            },
+            {
+                name: "محمد إبراهيم محمد المصري",
+                id: "405132895",
+                phone: "599161208",
+                gender: "ذكر",
+                governorate: "خانيونس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج نطقي",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1jz3ap2_4UFh0cBslM8Xuc_Z7gMOwtxGk/view?usp=sharing"
+            },
+            {
+                name: "مهند محمد محمود مطر",
+                id: "406964783",
+                phone: "595966813",
+                gender: "ذكر",
+                governorate: "خانيونس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "تمريض",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/14y-1RfYFHOIw-kDjj7PVbUg-NNsSKmlc/view?usp=sharing"
+            },
+            {
+                name: "هالة خالد سليمان ابو خماش",
+                id: "406055707",
+                phone: "599484654",
+                gender: "أنثى",
+                governorate: "خانيونس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "تأهيل",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1_XA-TLZ1iZCSsTfsQjV__QLela13lU0I/view?usp=sharing"
+            },
+            {
+                name: "ريهام مصطفى محمد أبو ستة",
+                id: "401792198",
+                phone: "592415174",
+                gender: "أنثى",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج طبيعي",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1nU1vHz-yHUQ5ri5p8nxz4OOxdvrUcuZN/view?usp=sharing"
+            },
+            {
+                name: "حسام جمال محمد أبو غالية",
+                id: "426101424",
+                phone: "592538558",
+                gender: "ذكر",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج وظيفي",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/13w4my64yOyu_cN_jrfdawN_GPrwiEXDE/view?usp=sharing"
+            },
+            {
+                name: "حمادة رزق محمود البلعاوي",
+                id: "804828879",
+                phone: "599570194",
+                gender: "ذكر",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "علاج نطقي",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1avMDiWO1pSwHPozJYqLEh3hRSkX8D9OY/view?usp=sharing"
+            },
+            {
+                name: "تسنيم محمود عبد الرازق خلف الله",
+                id: "403104045",
+                phone: "595910605",
+                gender: "أنثى",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "تمريض",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/17IQYBnxjvxUNxMeTzxFJyhoOcgWCgdwC/view?usp=sharing"
+            },
+            {
+                name: "نزار سامي هاشم النمس",
+                id: "403799570",
+                phone: "599791455",
+                gender: "ذكر",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "تأهيل",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1BhEEGdOv0Tm9YGPP7-dljp7uxgrelgXt/view?usp=sharing"
+            },
+            {
+                name: "أفنان جمال شكري أبو معيلق",
+                id: "400692460",
+                phone: "597448212",
+                gender: "أنثى",
+                governorate: "الوسطى",
+                missionGov: "الوسطى",
+                department: "التأهيل",
+                missionType: "علاج طبيعي",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1RmuSO9FjW8FdaBwRCMkVptAq2ePJd-aq/view?usp=sharing"
+            },
+            {
+                name: "أريج خالد محمد أبو شعبان",
+                id: "402019624",
+                phone: "592343002",
+                gender: "أنثى",
+                governorate: "الوسطى",
+                missionGov: "الوسطى",
+                department: "التأهيل",
+                missionType: "علاج وظيفي",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1PNClYVSF_Jgw9sdg-7sZ_xdzT0odSY7s/view?usp=sharing"
+            },
+            {
+                name: "محمد عادل محمد حسين",
+                id: "404591380",
+                phone: "598103602",
+                gender: "ذكر",
+                governorate: "الوسطى",
+                missionGov: "الوسطى",
+                department: "التأهيل",
+                missionType: "علاج نطقي",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1Dghi7yZP9K_rrcXv51o_FpnpcBZ2nr4W/view?usp=sharing"
+            },
+            {
+                name: "رشا زياد أحمد أبو سويرح",
+                id: "405851551",
+                phone: "595108757",
+                gender: "أنثى",
+                governorate: "الوسطى",
+                missionGov: "الوسطى",
+                department: "التأهيل",
+                missionType: "تمريض",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1IvMIreXqkDWWL9wxtxGSzUGB_-QewCsu/view?usp=sharing"
+            },
+            {
+                name: "نجية شكري محمد ابو عمرة",
+                id: "906752555",
+                phone: "599174535",
+                gender: "أنثى",
+                governorate: "الوسطى",
+                missionGov: "الوسطى",
+                department: "التأهيل",
+                missionType: "تأهيل",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1S_P-fWiUB-nVvbeqsni6TMnwhwqpRhgB/view?usp=sharing"
+            },
+            {
+                name: "محمد وجيه سعيد شحادة",
+                id: "405219814",
+                phone: "592138557",
+                gender: "ذكر",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "علاج طبيعي",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1vI8zIduhcpM5hSi9UMhtrEO7qhTbZjNA/view?usp=sharing"
+            },
+            {
+                name: "مريم أحمد يوسف الشريف",
+                id: "407700533",
+                phone: "592830561",
+                gender: "أنثى",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "علاج وظيفي",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1UxQz9sbKPFFt75JMlQuticD87mFtGOQm/view?usp=sharing"
+            },
+            {
+                name: "خلود محمد ناصرأبو جراد",
+                id: "801907841",
+                phone: "592104150",
+                gender: "أنثى",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "علاج نطقي",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1L_lvH5VzpTq6F-0ma5A7UDr-H48evTBm/view?usp=sharing"
+            },
+            {
+                name: "عبد الرحيم غازي عبد الرحيم الدبش",
+                id: "407098557",
+                phone: "592494486",
+                gender: "ذكر",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "تمريض",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1D0tQz_h1Nym2WfoTwcq1IY441YyNp8iA/view?usp=drive_link"
+            },
+            {
+                name: "عمر شاهين رمضان حمد",
+                id: "400942348",
+                phone: "597571257",
+                gender: "ذكر",
+                governorate: "جباليا",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "تأهيل",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1m401ldilxf741c-dQtlUlJh3AX_HTXr0/view?usp=sharing"
+            },
+            {
+                name: "يارا حسام خميس الشنباري",
+                id: "406050930",
+                phone: "597671369",
+                gender: "أنثى",
+                governorate: "جباليا",
+                missionGov: "شمال غزة",
+                department: "التأهيل",
+                missionType: "علاج طبيعي",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1FN9Gpoi-j9Q69GTkBkBJzU8dVu5bAnYu/view?usp=sharing"
+            },
+            {
+                name: "بسمة ابراهيم احمد فرينة",
+                id: "407776400",
+                phone: "598601771",
+                gender: "أنثى",
+                governorate: "جباليا",
+                missionGov: "شمال غزة",
+                department: "التأهيل",
+                missionType: "علاج وظيفي",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1JAokDLd-Y8JLMd06FfK7OALm-bTcYbu5/view?usp=sharing"
+            },
+            {
+                name: "نور رفيق على عبد العال",
+                id: "408036705",
+                phone: "567040109",
+                gender: "أنثى",
+                governorate: "جباليا",
+                missionGov: "شمال غزة",
+                department: "التأهيل",
+                missionType: "علاج نطقي",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1N9uKgI9FgANXvZJOgubmrMKfqyqqUQcW/view?usp=sharing"
+            },
+            {
+                name: "محمد أحمد مصطفى السويطي",
+                id: "404066524",
+                phone: "599179033",
+                gender: "ذكر",
+                governorate: "جباليا",
+                missionGov: "شمال غزة",
+                department: "التأهيل",
+                missionType: "ممرض",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1EcIckhtLuhCw-5y7A4CyoAwlgALBgfXu/view?usp=sharing"
+            },
+            {
+                name: "رنين رياض عوض مسمار",
+                id: "405199506",
+                phone: "599062265",
+                gender: "أنثى",
+                governorate: "غزة",
+                missionGov: "شمال غزة",
+                department: "التأهيل",
+                missionType: "تأهيل",
+                project: "النرويجي",
+                certificateUrl: "https://drive.google.com/file/d/1ydzY-B9kBgchkOtEY7MBmKkKMelTZh2r/view?usp=sharing"
+            },
+            {
+                name: "ملاك حمدان عوض عبد العال",
+                id: "401854145",
+                phone: "592458221",
+                gender: "أنثى",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "التربية الخاصة واعادة التاهيل",
+                project: "الالماني",
+                certificateUrl: "https://drive.google.com/file/d/1Kk33YnfsaOKpTS2yhCxtfzul8m2WLMzE/view?usp=sharing"
+            },
+            {
+                name: "باسمة محمد سلام عصفور",
+                id: "404265225",
+                phone: "567454156",
+                gender: "أنثى",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "الارشاد النفسي",
+                project: "الالماني",
+                certificateUrl: "https://drive.google.com/file/d/1U57BaRIEOVPcEJoL5TkUx3oPGnYQAB2K/view?usp=sharing"
+            },
+            {
+                name: "نهى عصام عيد حماد",
+                id: "406078659",
+                phone: "566307609",
+                gender: "أنثى",
+                governorate: "رفح",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "الخدمة الاجتماعية",
+                project: "الالماني",
+                certificateUrl: "https://drive.google.com/file/d/1IscLb58zevKhRxnCugfCUifEgIc8LB2p/view?usp=sharing"
+            },
+            {
+                name: "فاطمة محمود عبد الرازق خلف الله",
+                id: "400578409",
+                phone: "599941926",
+                gender: "أنثى",
+                governorate: "خانيونس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "تربية الطفل",
+                project: "الالماني",
+                certificateUrl: "https://drive.google.com/file/d/12lGCJqXrFlOVgGw8w97Iwkr7YqIiJ94b/view?usp=sharing"
+            },
+            {
+                name: "اسماء كمال عبد المجيد العبادسة",
+                id: "802623249",
+                phone: "598282023",
+                gender: "أنثى",
+                governorate: "خانيونس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "التربية الخاصة واعادة التاهيل",
+                project: "الالماني",
+                certificateUrl: "https://drive.google.com/file/d/1hPoK3JS0iE3I3CEpxZNctyxzeQda3ssz/view?usp=sharing"
+            },
+            {
+                name: "صابرين سامي محمود العقاد",
+                id: "404055782",
+                phone: "592668281",
+                gender: "أنثى",
+                governorate: "خانيونس",
+                missionGov: "خانيونس",
+                department: "التأهيل",
+                missionType: "التربية الخاصة واعادة التاهيل",
+                project: "الالماني",
+                certificateUrl: "https://drive.google.com/file/d/1g2MQwWjGM5s0lVtABKzPRS4_mTSDx_RL/view?usp=sharing"
+            },
+            {
+                name: "اسيل خالد محمد العدوي",
+                id: "404650731",
+                phone: "567076064",
+                gender: "أنثى",
+                governorate: "الوسطى",
+                missionGov: "الوسطى",
+                department: "التأهيل",
+                missionType: "التربية الخاصة واعادة التاهيل",
+                project: "الالماني",
+                certificateUrl: "https://drive.google.com/file/d/1Euc2rC8h7Ac_F5BG4WlqyTLigQToRU6s/view?usp=sharing"
+            },
+            {
+                name: "الاء عمار مصطفى عزيز",
+                id: "408957447",
+                phone: "592250646",
+                gender: "أنثى",
+                governorate: "الوسطى",
+                missionGov: "الوسطى",
+                department: "التأهيل",
+                missionType: "علاج الوظيفي",
+                project: "الالماني",
+                certificateUrl: "https://drive.google.com/file/d/12XSfzqeciWc8_fegXHSBmTBLXHIYQkRq/view?usp=sharing"
+            },
+            {
+                name: "ياسمين محمد حمدان سعيد",
+                id: "803660000",
+                phone: "599233157",
+                gender: "أنثى",
+                governorate: "الوسطى",
+                missionGov: "الوسطى",
+                department: "التأهيل",
+                missionType: "الارشادالنفسي والتوجيه التربوي",
+                project: "الالماني",
+                certificateUrl: "https://drive.google.com/file/d/1LQQcRdwfy1nipBrAE8F3pUVZXxAm2obF/view?usp=sharing"
+            },
+            {
+                name: "نسمه سامي عيسى عمر عجور",
+                id: "804418853",
+                phone: "597681070",
+                gender: "أنثى",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "التاهيل المجتمعي",
+                project: "الالماني",
+                certificateUrl: "https://drive.google.com/file/d/1rkqPPIywRQ3x9c-P0U7sPoGUe7WtaEQL/view?usp=sharing"
+            },
+            {
+                name: "حسان صابر محمد ديب عبد الدايم",
+                id: "402550248",
+                phone: "595566556",
+                gender: "ذكر",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "تربية خاصة",
+                project: "الالماني",
+                certificateUrl: "https://drive.google.com/file/d/1fURa0UrfqdNzpm75m4XySxXxCv-vEdpH/view?usp=sharing"
+            },
+            {
+                name: "نزهة صالح عبد الله حمودة",
+                id: "804794659",
+                phone: "592876476",
+                gender: "أنثى",
+                governorate: "غزة",
+                missionGov: "غزة",
+                department: "التأهيل",
+                missionType: "تربية خاصة",
+                project: "الالماني",
+                certificateUrl: "https://drive.google.com/file/d/1wqu1cUafTyBPP3s57uotKjvvOBz0nSjZ/view?usp=sharing"
+            }
+        ];
+
+        // عرض المتطوعين
+        function displayVolunteers(filteredVolunteers = volunteers) {
+            const container = document.getElementById('volunteersContainer');
+            container.innerHTML = '';
+            
+            filteredVolunteers.forEach(volunteer => {
+                const card = document.createElement('div');
+                card.className = 'volunteer-card';
+                
+                // تحديد لون المشروع
+                let projectClass = '';
+                if (volunteer.project === 'الكندي') projectClass = 'canadian';
+                else if (volunteer.project === 'النرويجي') projectClass = 'norwegian';
+                else if (volunteer.project === 'الالماني') projectClass = 'german';
+                
+                card.innerHTML = `
+                    <div class="volunteer-header ${projectClass}">
+                        <span class="volunteer-gender">${volunteer.gender}</span>
+                        <span class="volunteer-project">${volunteer.project}</span>
+                        <br/>
+                        <h3 class="volunteer-name">${volunteer.name}</h3>
+                        <p class="volunteer-id">رقم الهوية: ${volunteer.id}</p>
+                    </div>
+                    <div class="volunteer-body">
+                        <div class="volunteer-detail">
+                            <span class="volunteer-detail-label">رقم الجوال:</span>
+                            <span class="volunteer-detail-value">${volunteer.phone}</span>
+                        </div>
+                        <div class="volunteer-detail">
+                            <span class="volunteer-detail-label">محافظة السكن:</span>
+                            <span class="volunteer-detail-value">${volunteer.governorate}</span>
+                        </div>
+                        <div class="volunteer-detail">
+                            <span class="volunteer-detail-label">محافظة المهمة:</span>
+                            <span class="volunteer-detail-value">${volunteer.missionGov}</span>
+                        </div>
+                        <div class="volunteer-detail">
+                            <span class="volunteer-detail-label">التخصص:</span>
+                            <span class="volunteer-detail-value">${volunteer.missionType}</span>
+                        </div>
+                        <a href="${volunteer.certificateUrl || '#'}" class="certificate-link" target="_blank">
+                            <i class="fas fa-download"></i> تحميل الشهادة
+                        </a>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+        
+        // فلترة المتطوعين
+        function filterVolunteers() {
+            const searchText = document.getElementById('volunteerSearch').value.toLowerCase();
+            const projectFilter = document.getElementById('projectFilter').value;
+            const genderFilter = document.getElementById('genderFilter').value;
+            
+            const filtered = volunteers.filter(volunteer => {
+                const nameMatch = volunteer.name.toLowerCase().includes(searchText) || 
+                                 volunteer.id.includes(searchText);
+                const projectMatch = projectFilter === 'all' || volunteer.project === projectFilter;
+                const genderMatch = genderFilter === 'all' || volunteer.gender === genderFilter;
+                
+                return nameMatch && projectMatch && genderMatch;
+            });
+            
+            displayVolunteers(filtered);
+            
+            // تحديث الإحصائيات
+            document.querySelectorAll('.quick-stats .stat-number')[0].textContent = filtered.length;
+        }
+        
+        // أحداث البحث والتصفية
+        document.getElementById('volunteerSearch').addEventListener('input', filterVolunteers);
+        document.getElementById('projectFilter').addEventListener('change', filterVolunteers);
+        document.getElementById('genderFilter').addEventListener('change', filterVolunteers);
+        
+        // العرض الأولي
+        displayVolunteers();
+        
+        // تحديث الإحصائيات
+        function updateStats() {
+            const canadianCount = volunteers.filter(v => v.project === 'الكندي').length;
+            const norwegianCount = volunteers.filter(v => v.project === 'النرويجي').length;
+            const germanCount = volunteers.filter(v => v.project === 'الالماني').length;
+            
+            document.querySelectorAll('.quick-stats .stat-number')[1].textContent = canadianCount;
+            document.querySelectorAll('.quick-stats .stat-number')[2].textContent = norwegianCount;
+            document.querySelectorAll('.quick-stats .stat-number')[3].textContent = germanCount;
+        }
+        
+        updateStats();
+
+        // زر العودة للأعلى
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.style.opacity = '1';
+                scrollTopBtn.style.visibility = 'visible';
+            } else {
+                scrollTopBtn.style.opacity = '0';
+                scrollTopBtn.style.visibility = 'hidden';
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+    <div class="floating-actions">
+        <a href="mailto:murlaus44@gmail.com" class="floating-btn contact" title="اتصل بنا">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+    </body>
+</html>

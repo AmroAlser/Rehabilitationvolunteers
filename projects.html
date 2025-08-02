@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشاريع التأهيل المجتمعي - الهلال الأحمر الفلسطيني</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --red-crescent: #e30613;
+            --red-crescent-dark: #c00510;
+            --german-blue: #1a5fb4;
+            --norwegian-orange: #c64600;
+            --canadian-green: #26a269;
+            --text-dark: #333;
+            --text-medium: #555;
+            --text-light: #f5f5f5;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-md: 0 6px 12px rgba(0,0,0,0.15);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.2);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+        
+        /* تحسينات الهيدر */
+        header {
+            background: linear-gradient(135deg, var(--red-crescent), var(--red-crescent-dark));
+            padding: 2.5rem 1.5rem;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.8s ease;
+            flex-direction: column;
+        }
+        
+        .logo img {
+            height: 100px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            transition: var(--transition);
+            margin-bottom: 15px;
+        }
+        
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo h1 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin-bottom: 0.5rem;
+        }
+        
+        .department-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .department-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 2px;
+        }
+        
+        .main-nav {
+            background-color: white;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .main-nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        
+        .main-nav a:hover {
+            color: var(--red-crescent);
+            background-color: #f8f8f8;
+            transform: translateY(-2px);
+        }
+        
+        .main-nav .nav-active {
+            color: white;
+            background: linear-gradient(135deg, var(--red-crescent), var(--red-crescent-dark));
+            box-shadow: 0 4px 8px rgba(227, 6, 19, 0.2);
+        }
+        
+        .print-btn {
+            background: linear-gradient(135deg, var(--german-blue), #134e9b);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.4rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-right: auto;
+            box-shadow: 0 2px 6px rgba(26, 95, 180, 0.2);
+        }
+        
+        .print-btn:hover {
+            background: linear-gradient(135deg, #134e9b, var(--german-blue));
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(26, 95, 180, 0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 25px;
+        }
+
+        /* أنماط الصفحة */
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            color: var(--red-crescent);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .page-title::after {
+            content: "";
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--red-crescent), transparent);
+            border-radius: 3px;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        /* فلتر المشاريع */
+        .projects-filter {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 40px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            border: 1px solid #eee;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .filter-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+
+        .filter-select, .search-input {
+            width: 100%;
+            padding: 12px 18px;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            font-size: 1.05rem;
+            transition: var(--transition);
+            background-color: #f8f9fa;
+        }
+
+        .filter-select:focus, .search-input:focus {
+            outline: none;
+            border-color: var(--red-crescent);
+            box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.1);
+            background-color: white;
+        }
+
+        /* أنماط المشاريع */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 35px;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid #eee;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: #ddd;
+        }
+
+        .project-header {
+            padding: 30px;
+            color: white;
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
+        }
+
+        .project-header.canadian {
+            background-color: var(--canadian-green);
+            background-image: linear-gradient(135deg, rgba(38, 162, 105, 0.9), rgba(30, 138, 90, 0.9)), 
+                              url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+
+        .project-header.norwegian {
+            background-color: var(--norwegian-orange);
+            background-image: linear-gradient(135deg, rgba(198, 70, 0, 0.9), rgba(176, 61, 0, 0.9)), 
+                              url('https://images.unsplash.com/photo-1527525443983-6e60c75fff46?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+
+        .project-header.german {
+            background-color: var(--german-blue);
+            background-image: linear-gradient(135deg, rgba(26, 95, 180, 0.9), rgba(15, 75, 155, 0.9)), 
+                             url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+            line-height: 1.4;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -0.5px;
+        }
+
+        .project-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            line-height: 1.6;
+        }
+
+        .project-budget {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.25);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            z-index: 2;
+            backdrop-filter: blur(5px);
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .project-duration {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.25);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            z-index: 2;
+            backdrop-filter: blur(5px);
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .project-body {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--red-crescent);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            letter-spacing: -0.3px;
+        }
+
+        .section-title i {
+            font-size: 1.2rem;
+        }
+
+        .project-description {
+            line-height: 1.9;
+            color: var(--text-medium);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .project-activities {
+            list-style-type: none;
+            padding-right: 0;
+        }
+
+        .project-activities li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 30px;
+            line-height: 1.8;
+            color: var(--text-medium);
+            font-size: 1.05rem;
+        }
+
+        .project-activities li::before {
+            content: "→";
+            color: var(--red-crescent);
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+            font-size: 1.2rem;
+        }
+
+        .highlight-box {
+            background-color: #f8f9fa;
+            padding: 18px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-right: 4px solid;
+            line-height: 1.9;
+        }
+
+        .success-stories {
+            border-right-color: var(--canadian-green);
+            background: linear-gradient(to left, rgba(38, 162, 105, 0.05), transparent);
+        }
+
+        .challenges {
+            border-right-color: var(--norwegian-orange);
+            background: linear-gradient(to left, rgba(198, 70, 0, 0.05), transparent);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-sm);
+            background-color: white;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--red-crescent);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+            margin-top: auto;
+        }
+
+        .project-status {
+            font-size: 1.05rem;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .project-status strong {
+            color: var(--red-crescent);
+            font-weight: 700;
+        }
+
+        .project-link {
+            background: linear-gradient(135deg, var(--red-crescent), var(--red-crescent-dark));
+            color: white;
+            padding: 0.7rem 1.4rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 8px rgba(227, 6, 19, 0.2);
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(227, 6, 19, 0.3);
+            background: linear-gradient(135deg, var(--red-crescent-dark), var(--red-crescent));
+        }
+
+        /* تأثيرات بصرية */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .project-card {
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+
+        footer {
+            background: linear-gradient(135deg, #222, #333);
+            color: white;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            margin-top: 5rem;
+        }
+        
+        footer p {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+        
+        footer a {
+            color: #ff6b6b;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        
+        footer a:hover {
+            color: #ff8f8f;
+            text-decoration: underline;
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--red-crescent), var(--red-crescent-dark));
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 99;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        @media (max-width: 768px) {
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo img {
+                height: 80px;
+            }
+            
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .department-title {
+                font-size: 1.6rem;
+            }
+            
+            .nav-container {
+                justify-content: center;
+                gap: 15px;
+                padding: 0.8rem 15px;
+            }
+            
+            .print-btn {
+                margin-right: 0;
+                order: -1;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-filter {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+            
+            .filter-group {
+                width: 100%;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            .department-title {
+                font-size: 1.4rem;
+            }
+            
+            .scroll-top {
+                bottom: 25px;
+                left: 25px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .project-header {
+                min-height: 180px;
+                padding: 25px;
+            }
+            
+            .project-title {
+                font-size: 1.6rem;
+            }
+            
+            .project-footer {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+                padding: 15px;
+            }
+            
+            .project-body {
+                padding: 25px;
+            }
+            
+            .project-link {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .main-nav a {
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+            }
+        }
+    
+        .floating-actions {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1000;
+        }
+        
+        .floating-btn {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: white;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .floating-btn.budget {
+            background: linear-gradient(135deg, var(--canadian-green), #1e8a5a);
+        }
+        
+        .floating-btn.home {
+            background: linear-gradient(135deg, var(--red-crescent), var(--red-crescent-dark));
+        }
+        
+        .floating-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* تحسينات إضافية */
+        .project-description.en {
+            direction: ltr;
+            text-align: left;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+        
+        .no-projects {
+            text-align: center;
+            padding: 50px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            grid-column: 1 / -1;
+            border: 1px solid #eee;
+        }
+        
+        .no-projects i {
+            font-size: 3.5rem;
+            color: #ddd;
+            margin-bottom: 25px;
+        }
+        
+        .no-projects h3 {
+            font-size: 1.8rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .no-projects p {
+            font-size: 1.1rem;
+            color: #777;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="download.png" alt="شعار الهلال الأحمر الفلسطيني">
+            <h1>جمعية الهلال الأحمر الفلسطيني</h1>
+            <p class="department-title">دائرة التأهيل المجتمعي - مشاريعنا</p>
+        </div>
+    </header>
+    
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html">الرئيسية</a>
+            <a href="projects.html" class="nav-active">المشاريع</a>
+            <a href="contact.html">اتصل بنا</a>
+            <button class="print-btn" onclick="window.print()">
+                <i class="fas fa-print"></i> طباعة الصفحة
+            </button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">مشاريع التأهيل المجتمعي</h1>
+            <p class="page-subtitle">تعرف على مشاريعنا الجارية والمنجزة لتحسين وصول الفئات الأكثر احتياجاً لخدمات التأهيل والصحة المجتمعية في مختلف محافظات قطاع غزة</p>
+        </div>
+
+        <!-- فلتر المشاريع -->
+        <div class="projects-filter">
+            <div class="filter-group">
+                <label for="projectSearch" class="filter-label"><i class="fas fa-search"></i> بحث المشاريع</label>
+                <input type="text" id="projectSearch" placeholder="ابحث عن مشروع..." class="search-input">
+            </div>
+            <div class="filter-group">
+                <label for="fundingFilter" class="filter-label"><i class="fas fa-hand-holding-usd"></i> جهة التمويل</label>
+                <select id="fundingFilter" class="filter-select">
+                    <option value="all">جميع الجهات</option>
+                    <option value="canadian">كندي</option>
+                    <option value="norwegian">نرويجي</option>
+                    <option value="german">ألماني</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="projects-container">
+            
+            <!-- المشروع الكندي -->
+            <div class="project-card" data-status="active" data-funding="canadian">
+                <div class="project-header canadian">
+                    <span class="project-budget">الميزانية: $4,885,180.0</span>
+                    <span class="project-duration">2024-2026</span>
+                    <br>
+                    <h2 class="project-title">تعزيز الخدمات الإنسانية في الضفة الغربية وغزة</h2>
+                    <p class="project-subtitle">"Strengthening Humanitarian Services in the West Bank and Gaza"</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-info-circle"></i> نظرة عامة</h3>
+                        <p class="project-description">
+                            مشروع يهدف إلى تعزيز الخدمات الإنسانية الأساسية في المناطق الأكثر احتياجاً في الضفة الغربية وقطاع غزة، مع التركيز على تحسين جودة ووصول خدمات التأهيل المجتمعي للمتضررين من النزاعات والأزمات.
+                        </p>
+                        <p class="project-description en">
+                            "Strengthening Humanitarian Services in the West Bank and Gaza" project aims to enhance basic humanitarian services in the most needy areas of the West Bank and Gaza Strip, with a focus on improving the quality and access to community rehabilitation services for those affected by conflicts and crises.
+                        </p>
+                    </div>
+                    
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-users"></i> الشركاء</h3>
+                        <p class="project-description">دائرة الصحة النفسية - دائرة الرعاية الاولية - دائرة الكوارث - دائرة التاهيل المجتمعي</p>
+                    </div>
+
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-hand-holding-usd"></i> ميزانية التأهيل</h3>
+                        <p class="project-description">$381,786.0</p>
+                    </div>
+
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-chart-pie"></i> معدلات الإنجاز</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-value">77%</span>
+                                <span class="stat-label">معدل الصرف</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">70%</span>
+                                <span class="stat-label">معدل الإنجاز</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-list-ul"></i> الأنشطة الرئيسية</h3>
+                        <ul class="project-activities">
+                            <li>تدريبات تنشيطية للمتطوعين في مجال التأهيل (تدريبات متخصصة)</li>
+                            <li>تدريبات تنشيطية للمتطوعين (السلامة، الإبلاغ، البروتوكولات)</li>
+                            <li>اجتماعات فرق العمل الربعية</li>
+                            <li>اتصالات موظفي ومتطوعي التأهيل</li>
+                            <li>زي موحد/ سترات وسترات ميدانية</li>
+                            <li>حقائب نظافة للموظفين والمتطوعين</li>
+                            <li>أجهزة مساعدة (سمعية وجسدية)</li>
+                            <li>بدلات تنقل</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-user-friends"></i> عدد المتطوعين</h3>
+                        <p class="project-description">37 متطوعاً</p>
+                    </div>
+                    
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-star"></i> قصص نجاح</h3>
+                        <div class="highlight-box success-stories">
+                            <div class="success-story">
+                                <p><strong>قصة عزة مازن العمور:</strong> تعرضت لقصف صاروخي للمنزل أدى إلى شلل طولي في الجهة اليسرى أثر على الجهة اليمين واختراق طبلة الأذن. بعد شهرين من جلسات العلاج الوظيفي المكثف، استعادت المدى الحركي والقوة العضلية وأصبحت تعتمد على نفسها في أنشطة الحياة اليومية.</p>
+                                <a href="https://drive.google.com/file/d/1y3O3sEgmdkg9j0Rjl21Rkhyo27_d7YCG/view?usp=sharing" class="video-btn" target="_blank">
+                                    <i class="fas fa-play-circle"></i> مشاهدة قصة النجاح
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-exclamation-triangle"></i> التحديات</h3>
+                        <div class="highlight-box challenges">
+                            <p>صعوبة الوصول لبعض المناطق بسبب القيود الأمنية والإغلاقات.</p>
+                            <p>نقص بعض المعدات والأجهزة الطبية المتخصصة بسبب الحصار.</p>
+                            <p>الحاجة المستمرة لتحديث مهارات الكوادر المحلية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- المشروع النرويجي -->
+            <div class="project-card" data-status="starting" data-funding="norwegian">
+                <div class="project-header norwegian">
+                    <span class="project-budget">الميزانية: $785,395.05</span>
+                    <span class="project-duration">1/1/2025 -31/12/2025</span>
+                    <br>
+                    <h2 class="project-title">تحسين الوصول للرعاية الصحية للمتأثرين بالنزاع</h2>
+                    <p class="project-subtitle">"Improved access to health care for conflict-affected populations in oPt"</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-info-circle"></i> نظرة عامة</h3>
+                        <p class="project-description">
+                            مشروع يهدف إلى تحسين الوصول إلى خدمات الرعاية الصحية والتأهيلية الأساسية للسكان المتأثرين بالنزاع في الأراضي الفلسطينية المحتلة، مع التركيز على المناطق المهمشة والمحرومة.
+                        </p>
+                        <p class="project-description en">
+                            "Improved access to health care for conflict-affected populations in oPt" project aims to improve access to basic health and rehabilitation services for conflict-affected populations in the occupied Palestinian territory, with a focus on marginalized and deprived areas.
+                        </p>
+                    </div>
+                    
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-users"></i> الشركاء</h3>
+                        <p class="project-description">دائرة التاهيل - نقاط طبية الرعاية الاولية - دائرة الاسعاف والطوارئ 101</p>
+                    </div>
+
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-hand-holding-usd"></i> ميزانية التأهيل</h3>
+                        <p class="project-description">$89,759.46</p>
+                    </div>
+
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-chart-pie"></i> معدلات الإنجاز</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-value">60%</span>
+                                <span class="stat-label">معدل الصرف</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">75%</span>
+                                <span class="stat-label">معدل الإنجاز</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-list-ul"></i> الأنشطة الرئيسية</h3>
+                        <ul class="project-activities">
+                            <li>متطوعون</li>
+                            <li>مراقب ميداني</li>
+                            <li>مشرف فني</li>
+                            <li>تنقل الموظفين</li>
+                            <li>قرطاسية</li>
+                            <li>اتصالات</li>
+                            <li>مستلزمات مكتبية/ معدات/ أثاث وتكاليف تشغيل</li>
+                            <li>أجهزة مساعدة</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-user-friends"></i> عدد المتطوعين</h3>
+                        <p class="project-description">25 متطوعاً</p>
+                    </div>
+                    
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-star"></i> قصص نجاح</h3>
+                    </div>
+                    
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-exclamation-triangle"></i> التحديات</h3>
+                        <div class="highlight-box challenges">
+                            <p>تزايد أعداد النازحين الذين يحتاجون للخدمات بشكل يفوق القدرة الاستيعابية.</p>
+                            <p>صعوبة تأمين بعض المواد الطبية بسبب القيود على الواردات.</p>
+                            <p>الحاجة لبرامج متابعة طويلة الأمد لبعض الحالات.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- المشروع الألماني -->
+            <div class="project-card" data-status="active" data-funding="german">
+                <div class="project-header german">
+                    <span class="project-budget">الميزانية: £165,388.26</span>
+                    <span class="project-duration">1/1/2023 -31/12/2025</span>
+                    <br>
+                    <h2 class="project-title">رفع الوعي حول الإعاقات وأسبابها وكيفية التعامل معها</h2>
+                    <p class="project-subtitle">Raising awareness levels about disabilities, their causes, and how to deal with them within society.GP1</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-info-circle"></i> نظرة عامة</h3>
+                        <p class="project-description">
+                            يقدم المشروع خدمات توعية للمجتمع المحلي من ضمنهم أولياء الأمور للأشخاص ذوي الإعاقة وأعمال دمج وترفيه للأطفال. يتم تقديم هذه الخدمات لأولياء الأمور من خلال مواضيع تعرف على نوع الإعاقة وأسباب الإعاقة وطرق الوقاية منها والكشف المبكر وتدخل المبكر، وأيضاً تعريف بحقوق الأشخاص ذوي الإعاقة في المجتمع من خلال دائرة التأهيل في إعادة دمج هذه الفئة في المجتمع من أجل الاعتماد على الذات في القيام بمتطلبات الحياة لكل فرد.
+                        </p>
+                        <p class="project-description en">
+                            The project provides awareness services to the local community, including parents of people with disabilities, and integration and entertainment activities for children. These services are provided to parents through topics that introduce the type of disability, its causes, methods of prevention, early detection and early intervention, as well as defining the rights of people with disabilities in society through the Rehabilitation Department in reintegrating this group into society in order to rely on themselves in meeting the requirements of life for each individual.
+                        </p>
+                    </div>
+                    
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-users"></i> الشركاء</h3>
+                        <p class="project-description">دائرة التاهيل - دائرة الرعاية الاولية - دائرة الاسعاف والطوارئ 101</p>
+                    </div>
+
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-hand-holding-usd"></i> ميزانية التأهيل</h3>
+                        <p class="project-description">£33,200.0</p>
+                    </div>
+
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-chart-pie"></i> معدلات الإنجاز</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-value">60%</span>
+                                <span class="stat-label">معدل الصرف</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">75%</span>
+                                <span class="stat-label">معدل الإنجاز</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-list-ul"></i> الأنشطة الرئيسية</h3>
+                        <ul class="project-activities">
+                            <li>تدريب المتطوعين</li>
+                            <li>برامج توعية مع تدريب لأولياء الأمور وأفراد المجتمع المحلي</li>
+                            <li>دمج أطفال ذوي الإعاقة مع أقرانهم</li>
+                            <li>أدوات المساعدة (حفاضات)</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-user-friends"></i> عدد المتطوعين</h3>
+                        <p class="project-description">12 متطوعاً</p>
+                    </div>
+                    
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-star"></i> قصص نجاح</h3>
+                    </div>
+                    
+                    <div class="project-section">
+                        <h3 class="section-title"><i class="fas fa-exclamation-triangle"></i> التحديات</h3>
+                        <div class="highlight-box challenges">
+                            <p>بعض العائلات لا تزال تتردد في إشراك أطفالها في البرامج خوفاً من الوصمة الاجتماعية.</p>
+                            <p>نقص الكوادر المؤهلة في مجال التربية الخاصة.</p>
+                            <p>صعوبة تأمين بعض الوسائل التعليمية المتخصصة.</p>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; م.عمرو السر</p>
+        <p>تواصل معنا: <a href="murlaus44@gmail.com">murlaus44@gmail.com</a></p>
+    </footer>
+    
+    <button class="scroll-top" id="scrollTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script>
+        // زر العودة للأعلى
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.style.opacity = '1';
+                scrollTopBtn.style.visibility = 'visible';
+            } else {
+                scrollTopBtn.style.opacity = '0';
+                scrollTopBtn.style.visibility = 'hidden';
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // فلترة المشاريع
+        function filterProjects() {
+            const searchText = document.getElementById('projectSearch').value.toLowerCase();
+            const statusFilter = document.getElementById('statusFilter').value;
+            const fundingFilter = document.getElementById('fundingFilter').value;
+            
+            const projects = document.querySelectorAll('.project-card');
+            let visibleCount = 0;
+            
+            projects.forEach(project => {
+                const title = project.querySelector('.project-title').textContent.toLowerCase();
+                const status = project.getAttribute('data-status');
+                const funding = project.getAttribute('data-funding');
+                
+                const matchesSearch = title.includes(searchText);
+                const matchesStatus = statusFilter === 'all' || 
+                                    (statusFilter === 'active' && status === 'active') ||
+                                    (statusFilter === 'starting' && status === 'starting') ||
+                                    (statusFilter === 'completed' && status === 'completed');
+                const matchesFunding = fundingFilter === 'all' || funding === fundingFilter;
+                
+                if (matchesSearch && matchesStatus && matchesFunding) {
+                    project.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+            
+            // عرض رسالة إذا لم توجد نتائج
+            const noResults = document.querySelector('.no-projects');
+            if (visibleCount === 0) {
+                if (!noResults) {
+                    const container = document.querySelector('.projects-container');
+                    const message = document.createElement('div');
+                    message.className = 'no-projects';
+                    message.innerHTML = `
+                        <i class="fas fa-search"></i>
+                        <h3>لا توجد مشاريع مطابقة لمعايير البحث</h3>
+                        <p>حاول تغيير فلتر البحث أو استخدام كلمات بحث مختلفة</p>
+                    `;
+                    container.appendChild(message);
+                }
+            } else if (noResults) {
+                noResults.remove();
+            }
+        }
+        
+        // أحداث البحث والتصفية
+        document.getElementById('projectSearch').addEventListener('input', filterProjects);
+        document.getElementById('statusFilter').addEventListener('change', filterProjects);
+        document.getElementById('fundingFilter').addEventListener('change', filterProjects);
+        
+        // تأثيرات ظهور البطاقات عند التمرير
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            projectCards.forEach(card => {
+                card.style.opacity = '0';
+                observer.observe(card);
+            });
+        });
+    </script>
+
+    <div class="floating-actions">
+        <a href="index.html" class="floating-btn home" title="الصفحة الرئيسية">
+            <i class="fas fa-home"></i>
+        </a>
+    </div>
+</body>
+</html>
